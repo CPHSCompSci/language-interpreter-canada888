@@ -7,6 +7,8 @@ public class Main {
 
     String newWord = lex.translate("food");
     System.out.println(newWord);
+    //This is a test comment 1234
+    //Helloooo;
 
   }
 
