@@ -6,17 +6,38 @@ public class Main {
   public static void main(String[] args) {
 	  
 	Scanner input = new Scanner(System.in);
+	Scanner answer = new Scanner(System.in);
+	int a = 0;
+	do {
+		int ans = 0;
+		
+		System.out.println("Would you like to translate a word or decode a word? (enter 1 to decode or enter 2 to translate)" );
+		ans = answer.nextInt();
+		
+		if(ans == 1)
+		{
+			System.out.println("What word or phrase would you like to decode?");
+			String word = input.nextLine();
+			System.out.println("Decoded word: " + decodeInput(word));
+			//System.out.println();
+		}
+		else if(ans == 2)
+		{
+			System.out.println("What word or phrase would you like to translate?");
+			String wordTrans = input.nextLine();
+			System.out.println("Translated word: " + encodeInput(wordTrans));
+			System.out.println();			
+		}
 	
-	System.out.println("What word would you like to decode?");
-	String word = input.nextLine();
 	
+	System.out.println("Would you like to decode or translate another word? (Enter 1 for yes or 0 for no)");
+	a = answer.nextInt();
+	//System.out.println();
 	
-	
-    Lexicon lex = new Lexicon();
+	}while(a == 1);
+	System.out.println();
 
-    String newWord = lex.translate("Hot");
-    System.out.println(lex.getSample(6));
-    System.out.println(decodeMessage(lex.getSample(6)));
+
 
   }
 
@@ -34,7 +55,9 @@ public class Main {
 	  
 	  int startIngy = 0;
 	  int endIngy = 0;
-	
+	  
+	  for(int k = 0; k <= 100; k++)
+	  {
 		if(word.contains("ent") || word.contains("ingy"))
 			startEnt = word.indexOf("ent");
 			endEnt = startEnt + 3;
@@ -44,11 +67,18 @@ public class Main {
 				startIngy = newWordEnt.indexOf("ingy");
 				endIngy = startIngy + 4;
 				newWordIngy = newWordEnt.substring(0, startIngy) + word.substring(endIngy, newWordEnt.length());
-			
-			return newWordIngy; */
-	  String newWord = word.replace("ingy", "");
+				
+				word = newWordIngy;
+		}
+			return word; */
+	  String newWord ="";
+	  
+	  for(int i = 0; i <= 10; i ++)
+	  {
+	  newWord = word.replace("ingy", "");
 	  newWord = newWord.replace("ent", "");
 	  
+	  }
 	  return newWord;
     
   }
@@ -84,9 +114,11 @@ public class Main {
    * by the user.
    */
   public static String encodeInput(String word) {
-	Lexicon newLex = new Lexicon();
 	
+	Lexicon lex = new Lexicon();  
+	String newWordTranslated = lex.translate(word);
 	
+	return newWordTranslated;
 	
     //return Lexicon.translate(word);
   }
