@@ -25,7 +25,7 @@ public class Main {
 		{
 			System.out.println("What word or phrase would you like to translate?");
 			String wordTrans = input.nextLine();
-			System.out.println("Translated word: " + encodeInput(wordTrans));
+			System.out.println("Translated word: " + encodeInput(wordTrans));//uj
 			System.out.println();			
 		}
 	
